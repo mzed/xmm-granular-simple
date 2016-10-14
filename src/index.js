@@ -17,14 +17,14 @@ server.listen(port, function() {
 
 //============================= setting up xmm ===============================//
 
-var hhmm = new xmm('hhmm');
+var hhmm = new xmm('gmm');
 hhmm.setConfig({
-	states: 20,
+	//states: 20,
 	relative_regularization: 0.2,
 	absolute_regularization: 0.2,
 	// transition_mode: 'ergodic'
 });
-// console.log(hhmm.getConfig());
+console.log(hhmm.getConfig());
 
 //========================= socket communication : ===========================//
 var wsServer = new ws({
