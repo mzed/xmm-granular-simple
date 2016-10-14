@@ -126,7 +126,7 @@
     var gmmDecoder = new xmmClient.GmmDecoder();
     var trained = false;
     function trainMe() {
-        connection.send(userID, 'phrase', phraseMaker.phrase);
+        //connection.send(userID, 'phrase', phraseMaker.phrase);
         trained = true;
     }
 
@@ -214,6 +214,7 @@
             console.warn("recording!");
         } else {
             console.log("stopped recording");
+            connection.send(userID, 'phrase', phraseMaker.phrase);
         }
     }
 
