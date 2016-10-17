@@ -48,7 +48,7 @@ wsServer.on('request', function(req) {
 		// with Date.now() and keeps it until page is reloaded
 		switch (msg.msg) {
 			case 'phrase':
-				hhmm.addPhrase(msg.data);
+			    hhmm.addPhrase(msg.data);
 				hhmm.train(function(err, res) {
 					connection.send(JSON.stringify({
 						user: msg.user,

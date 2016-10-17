@@ -40,14 +40,14 @@
 
 
 <script>
-/*
+
     /////////////////////////////////////////MAXI
     var myMod = 0;
     var myFreq = 256;
     function makeNoise(rOut) {
         myFreq = 256 + (1024 * rOut);
     }
-
+/*
     var maxiAudio = new maximJs.maxiAudio();
     var myWave = new maximJs.maxiOsc();
     var myLFO01 = new maximJs.maxiOsc();
@@ -177,9 +177,15 @@
         }
 
         if (recordState) {
-            var myObservation = [mouseX, mouseY, mfSlider.value, mdSlider.value, cfSlider.value, qSlider.value];
+            var myObservation = [
+                mouseX,
+                mouseY,
+                parseFloat(mfSlider.value),
+                parseFloat(mdSlider.value),
+                parseFloat(cfSlider.value),
+                parseFloat(qSlider.value)
+            ];
             phraseMaker.addObservation(myObservation);
-            console.log('pm ', phraseMaker.phrase);
         }
 
         if (runState) {
@@ -214,6 +220,7 @@
             console.warn("recording!");
         } else {
             console.log("stopped recording");
+            console.log('pm ', phraseMaker.phrase);
             connection.send(userID, 'phrase', phraseMaker.phrase);
         }
     }
